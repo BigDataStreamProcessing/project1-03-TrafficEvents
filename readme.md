@@ -69,13 +69,13 @@ Wyniki powinny zawierać, następujące kolumny:
 - `penalty_points_sum` - dokładną sumaryczną liczbę zdobytych punktów karnych.
 
 ## Zadanie 4
-Dla każdego miasta i każdej kolejnej minuty utrzymywane są informacje o 5 najwyższych pomiarach prędkości. Znajduj osoby, które pojawiły się na powyższych listach co najmniej w dwóch różnych miastach.
+Dla każdego miasta, dla każdej kolejnej minuty, utrzymywane są informacje o 5 najwyższych pomiarach prędkości. Znajduj osoby, które pojawiły się na powyższych listach co najmniej w dwóch różnych miastach.
 
 Wyniki powinny zawierać, następujące kolumny:
 - `owner` - nazwę osoby
-- `city1` - nazwa pierwszego miasta
-- `city2` - nazwa drugiego miasta
-- `its1` - czas rozpoczęcia analizowanej minuty.
+- `city1` - nazwa miasta, w którym zdarzenie zostało zarejestrowane wcześniej
+- `city2` - nazwa miasta, w którym zdarzenie zostało zarejestrowane później
+- `its1` - czas zdarzenia, które zostało zarejestrowane wcześniej.
 
 
 ## Zadanie 5
