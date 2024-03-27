@@ -99,7 +99,7 @@ Wyniki powinny zawierać, następujące kolumny:
 - `st_its` - data pierwszego pomiaru.
 
 ## Zadanie 7
-Dla każdego miasta wykrywaj serie następujących po sobie co najmniej trzech pomiarów prędkości, gdzie prędkość dla każdego kolejnego pomiaru ma być nie mniejsza od pomiaru poprzedniego. Serie te powinny kończyć się pomiarem, w którym prędkość wreszcie zmalała w stosunku do pomiaru poprzedniego. 
+Dla każdego miasta wykrywaj serie następujących po sobie co najmniej trzech pomiarów prędkości, gdzie prędkość dla każdego kolejnego pomiaru ma być nie mniejsza od pomiaru poprzedniego. Serie te powinny kończyć się przed pomiarem, w którym prędkość wreszcie zmalała w stosunku do pomiaru poprzedniego. 
 
 Wyniki powinny zawierać, następujące kolumny:
 - `city` - nazwę miasta
