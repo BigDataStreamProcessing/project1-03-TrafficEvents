@@ -215,7 +215,7 @@ public class EsperClient {
         try {
             epCompiled = compiler.compile("""
                     @public @buseventtype create json schema TrafficEvent(car string, manufacturer string, city string, car_owner string, velocity int, fine int, penalty_points int, ets string, its string);
-                    @name('result') select * from TrafficEvent#ext_timed(java.sql.Timestamp.valueOf(its).getTime(), 3 sec);""", compilerArgs);
+                    @name('answer') select * from TrafficEvent#ext_timed(java.sql.Timestamp.valueOf(its).getTime(), 3 sec);""", compilerArgs);
         }
         catch (EPCompileException ex) {
             // handle exception here
