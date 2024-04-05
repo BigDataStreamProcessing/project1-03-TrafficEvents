@@ -50,7 +50,7 @@ public class EsperClient {
             throw new RuntimeException(ex);
         }
 
-        EPStatement resultStatement = runtime.getDeploymentService().getStatement(deployment.getDeploymentId(), "result");
+        EPStatement resultStatement = runtime.getDeploymentService().getStatement(deployment.getDeploymentId(), "answer");
 
         int numberOfPeople = 400;
 
