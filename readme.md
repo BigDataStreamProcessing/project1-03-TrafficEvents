@@ -10,11 +10,13 @@ car_owner string, velocity int, fine int, penalty_points int, ets string, its st
 
 Zdarzenie w strumieniu reprezentuje pojedynczy pomiar prędkości. 
 
-Dane poza samą prędkością zawierają informacje na temat pojazdu, miejsca wykonania pomiaru, właściciela, naliczonego mandatu i punktów karnych.
+Dane poza samą prędkością zawierają informacje na temat pojazdu, 
+miejsca wykonania pomiaru, właściciela, naliczonego mandatu i punktów karnych.
 
 Dane są uzupełnione o dwie etykiety czasowe. 
 * Pierwsza (`ets`) związana jest z momentem wykonania pomiaru prędkości. 
-  Etykieta ta może się losowo spóźniać w stosunku do czasu systemowego maksymalnie do 60 sekund.
+  Etykieta ta może się losowo spóźniać w stosunku do czasu systemowego 
+  maksymalnie do 60 sekund.
 * Druga (`its`) związana jest z momentem rejestracji zdarzenia zdobycia punktów w systemie.
 
 # Opis atrybutów
@@ -39,7 +41,8 @@ Opracuj rozwiązania poniższych zadań.
   * być poleceniem `select` 
   * posiadającym etykietę `answer`, przykładowo:
   ```
-    @name('answer') SELECT car, city, sum(penalty_points) as sumPoints, count(*) howMany, ets, its
+    @name('answer') SELECT car, city, sum(penalty_points) as sumPoints,
+         count(*) howMany, ets, its
     FROM TrafficEvent#ext_timed(java.sql.Timestamp.valueOf(its).getTime(), 3 sec)
   ```
 
@@ -61,7 +64,8 @@ Wyniki powinny zawierać, następujące kolumny:
 - `velocity` - wartość zmierzonej prędkości danego kierowcy.
 
 ## Zadanie 3
-Wykrywaj przypadki zdobycia przez właścicieli pojazdów sumarycznej liczby punktów karnych większej
+Wykrywaj przypadki zdobycia przez właścicieli pojazdów sumarycznej 
+liczby punktów karnych większej
 lub równej 24 liczonych od początku działania systemu.
 
 Wyniki powinny zawierać, następujące kolumny:
@@ -69,27 +73,36 @@ Wyniki powinny zawierać, następujące kolumny:
 - `penalty_points_sum` - dokładną sumaryczną liczbę zdobytych punktów karnych.
 
 ## Zadanie 4
-Dla każdego miasta, dla każdej kolejnej minuty, utrzymywane są informacje o 5 najwyższych pomiarach prędkości. Znajduj osoby, które pojawiły się na powyższych listach co najmniej w dwóch różnych miastach.
+Dla każdego miasta, dla każdej kolejnej minuty, utrzymywane są 
+informacje o 5 najwyższych pomiarach prędkości. Znajduj osoby, 
+które pojawiły się na powyższych listach co najmniej w dwóch różnych miastach.
 
 Wyniki powinny zawierać, następujące kolumny:
-- `owner` - nazwę osoby
+- `car_owner` - imię i nazwisko właściciela pojazdu
 - `city1` - nazwa miasta, w którym zdarzenie zostało zarejestrowane wcześniej
 - `city2` - nazwa miasta, w którym zdarzenie zostało zarejestrowane później
 - `its1` - czas zdarzenia, które zostało zarejestrowane wcześniej.
 
 
 ## Zadanie 5
-Znajduj serie co najmniej trzech pomiarów w mieście Poznań, w których zmierzona wartość prędkości nie spadała poniżej 100 km/h. Dla każdej znalezionej serii pobieraj jej początek oraz właścicieli pojazdów z dwóch pierwszych pomiarów. 
+Znajduj serie co najmniej trzech pomiarów w mieście Poznań, w których 
+zmierzona wartość prędkości nie spadała poniżej 100 km/h. 
+Dla każdej znalezionej serii pobieraj jej początek oraz właścicieli 
+pojazdów z dwóch pierwszych pomiarów. 
 
 Zadbaj o to, aby wykrywane serie się nie nakładały.
 
 Wyniki powinny zawierać, następujące kolumny:
-- `owner1` - imię i nazwisko pierwszego właściciela pojazdu
-- `owner2` - imię i nazwisko drugiego właściciela pojazdu
+- `car_owner1` - imię i nazwisko pierwszego właściciela pojazdu
+- `car_owner2` - imię i nazwisko drugiego właściciela pojazdu
 - `ets1` - czas rozpoczęcia wykrytej serii.
 
 ## Zadanie 6
-Znajduj serię następujących po sobie trzech pomiarów prędkości dotyczące takiej samej marki samochodu, gdzie prędkość dla każdego pomiaru jest większa od pomiaru poprzedniego. Wykluczaj przypadki, w których pomiędzy pierwszym a ostatnim zdarzeniem w serii zanotowano pomiar z prędkością poniżej 10 km/h. 
+Znajduj serię następujących po sobie trzech pomiarów prędkości 
+dotyczące takiej samej marki samochodu, gdzie prędkość dla każdego 
+pomiaru jest większa od pomiaru poprzedniego. Wykluczaj przypadki, 
+w których pomiędzy pierwszym a ostatnim zdarzeniem w serii zanotowano 
+pomiar z prędkością poniżej 10 km/h. 
 
 Wyniki powinny zawierać, następujące kolumny:
 - `car` - nazwę danej marki pojazdu
@@ -99,7 +112,11 @@ Wyniki powinny zawierać, następujące kolumny:
 - `st_its` - data pierwszego pomiaru.
 
 ## Zadanie 7
-Dla każdego miasta wykrywaj serie następujących po sobie co najmniej trzech pomiarów prędkości, gdzie prędkość dla każdego kolejnego pomiaru ma być nie mniejsza od pomiaru poprzedniego. Serie te powinny kończyć się przed pomiarem, w którym prędkość wreszcie zmalała w stosunku do pomiaru poprzedniego. 
+Dla każdego miasta wykrywaj serie następujących po sobie co najmniej 
+trzech pomiarów prędkości, gdzie prędkość dla każdego kolejnego 
+pomiaru ma być **nie mniejsza** od pomiaru poprzedniego. 
+Serie te powinny kończyć się przed pomiarem, w którym prędkość 
+wreszcie zmalała w stosunku do pomiaru poprzedniego. 
 
 Wyniki powinny zawierać, następujące kolumny:
 - `city` - nazwę miasta
