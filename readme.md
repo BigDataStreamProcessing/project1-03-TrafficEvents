@@ -77,6 +77,11 @@ Dla każdego miasta, dla każdej kolejnej minuty, utrzymywane są
 informacje o 5 najwyższych pomiarach prędkości. Znajduj osoby, 
 które pojawiły się na powyższych listach co najmniej w dwóch różnych miastach.
 
+W przypadku tych samych wartości prędkości, kolejność (na liście 5 
+najwyższych pomiarów dla każdego miasta) należy określić na podstawie 
+czasu rejestracji pomiaru (rosnąco), a następnie imienia i nazwiska 
+właściciela pojazdu (rosnąco). 
+
 Wyniki powinny zawierać, następujące kolumny:
 - `car_owner` - imię i nazwisko właściciela pojazdu
 - `city1` - nazwa miasta, w którym zdarzenie zostało zarejestrowane wcześniej
